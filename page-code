@@ -1,0 +1,13 @@
+import { testNamespace }  from '@yourHandle/your-package-name'
+
+$w.onReady(function () {
+
+    // simple spin - get all vector images and spins them
+    testNamespace.spin('VectorImage');
+
+    // interactive spin (roulette) - spin on mouseIn event
+    const roulette = $w('#roulette');
+    const rouletteSpinTimeLine = testNamespace.spin(roulette, { duration: 5000, direction: 'ccw', pause: true });
+    roulette.onMouseIn(() => rouletteSpinTimeLine.play());
+    roulette.onMouseOut(() => rouletteSpinTimeLine.pause());
+});
